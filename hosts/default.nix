@@ -37,7 +37,6 @@ in
     };
     modules = [
       nur.nixosModules.nur
-      nixvim.nixosModules.nixvim
       ./vpn
       ./configuration.nix
 
