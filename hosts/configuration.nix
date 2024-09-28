@@ -106,6 +106,7 @@ in
       unzip # Zip Files
       unrar # Rar Files
       zip # Zip
+      direnv
     ];
   };
 
