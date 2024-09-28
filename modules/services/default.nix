@@ -14,4 +14,5 @@
   ./gpg.nix
   ./ssh.nix
   ./qemu-guest.nix
+  ./wireguard.nix
 ]
