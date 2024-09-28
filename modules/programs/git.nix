@@ -23,15 +23,15 @@
         user.signingkey = "6293FAF829B9525D";
 
         # pull.rebase = true;
-        url = {
-          "git@github.com:" = {
-            insteadOf = "https://github.com/";
-          };
+        # url = {
+        #   "git@github.com:" = {
+        #     insteadOf = "https://github.com/";
+        #   };
 
-          "ssh://git@gitlab.com/" = {
-            insteadOf = "https://gitlab.com/";
-          };
-        };
+        #   "ssh://git@gitlab.com/" = {
+        #     insteadOf = "https://gitlab.com/";
+        #   };
+        # };
       };
     };
   };
