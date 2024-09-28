@@ -13,4 +13,5 @@
 [
   ./gpg.nix
   ./ssh.nix
+  ./qemu-guest.nix
 ]

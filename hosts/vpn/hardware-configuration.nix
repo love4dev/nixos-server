@@ -15,34 +15,44 @@
 { config, lib, modulesPath, vars, host, ... }:
 
 {
-  imports = [];
+  imports =
+    [ (modulesPath + "/profiles/qemu-guest.nix")
+    ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod" ];
+  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    {
-      device = "/dev/disk/by-uuid/045641c5-b7de-468b-979f-565b1ee56803";
+    { device = "/dev/disk/by-uuid/b0736dde-e774-4bba-9916-b1ae33e9ecd5";
       fsType = "ext4";
-    };
-
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/94BB-A907";
-      fsType = "vfat";
     };
 
   swapDevices = [ ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
 
   networking = with host; {
-    useDHCP = lib.mkDefault true;
-    hostName = hostName;
-    enableIPv6 = true;
+    dhcpcd = {
+            allowInterfaces = [ "internet" ];
+            extraConfig = ''
+              option rfc3442-classless-static-routes code 121 = array of unsigned integer 8;
+option dhcp6.next-hop code 242 = ip6-address;
+
+send host-name = gethostname();
+request subnet-mask, broadcast-address, time-offset, routers,
+        domain-name, domain-name-servers, domain-search, host-name,
+        dhcp6.name-servers, dhcp6.domain-search, dhcp6.fqdn, dhcp6.sntp-servers,
+        netbios-name-servers, netbios-scope, interface-mtu,
+        rfc3442-classless-static-routes, ntp-servers, dhcp6.next-hop;
+
+timeout 300
+            '';
+          };
+          interfaces = {
+            internet.useDHCP = true;
+          };
     nameservers = [ "1.1.1.1" ];
     firewall.enable = false;
   };
