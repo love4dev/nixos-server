@@ -21,18 +21,10 @@
   (import ../../modules/virtualisation);
 
   # Boot Options
-  boot = {
-    loader = {
-      systemd-boot = {
-        enable = true;
-        configurationLimit = 3;
-      };
-      efi = {
-        canTouchEfiVariables = true;
-      };
-      timeout = 5;
-    };
-  };
+  # Bootloader.
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "/dev/vda";
+  boot.loader.grub.useOSProber = true;
 
   hardware = {
     graphics = {
