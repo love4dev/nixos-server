@@ -30,7 +30,7 @@ in
   vpn = lib.nixosSystem {
     inherit system;
     specialArgs = {
-      inherit inputs system stable hyprland hyprspace vars;
+      inherit inputs system stable vars;
       host = {
         hostName = "vpn";
       };
