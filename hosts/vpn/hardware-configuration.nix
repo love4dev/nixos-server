@@ -38,6 +38,9 @@
     useDHCP = lib.mkDefault true;
     hostName = "timeweb-vpn-server";
     nameservers = [ "1.1.1.1" ];
-    firewall.enable = false;
+    firewall = {
+      # zabbix - 10050
+      allowedTCPPorts = [ 10050 ];
+    };
   };
 }

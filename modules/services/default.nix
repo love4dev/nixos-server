@@ -15,4 +15,5 @@
   ./ssh.nix
   ./qemu-guest.nix
   ./wireguard.nix
+  ./zabbix.nix
 ]

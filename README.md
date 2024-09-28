@@ -35,3 +35,6 @@ nix flake update # then rebuild
 sudo nixos-rebuild switch --flake .#vpn --show-trace
 nix-env -u '*'
 ```
+
+## Useful links
+- [VPN](https://github.com/linuxserver/docker-wireguard)
