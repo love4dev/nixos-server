@@ -34,25 +34,9 @@
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   networking = with host; {
-    dhcpcd = {
-            allowInterfaces = [ "internet" ];
-            extraConfig = ''
-              option rfc3442-classless-static-routes code 121 = array of unsigned integer 8;
-option dhcp6.next-hop code 242 = ip6-address;
-
-send host-name = gethostname();
-request subnet-mask, broadcast-address, time-offset, routers,
-        domain-name, domain-name-servers, domain-search, host-name,
-        dhcp6.name-servers, dhcp6.domain-search, dhcp6.fqdn, dhcp6.sntp-servers,
-        netbios-name-servers, netbios-scope, interface-mtu,
-        rfc3442-classless-static-routes, ntp-servers, dhcp6.next-hop;
-
-timeout 300
-            '';
-          };
-          interfaces = {
-            internet.useDHCP = true;
-          };
+    enableIPv6 = true;
+    useDHCP = lib.mkDefault true;
+    hostName = "oleg-nix-pc";
     nameservers = [ "1.1.1.1" ];
     firewall.enable = false;
   };
