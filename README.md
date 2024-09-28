@@ -16,6 +16,6 @@
 
 - Pull repo
 ```
-git clone git@github.com:love4dev/nixos-server.git ~/.setup
+git clone https://github.com/love4dev/nixos-server.git ~/.setup
 cd ~/.setup
 ```
