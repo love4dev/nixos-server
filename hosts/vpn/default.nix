@@ -18,8 +18,7 @@
   imports = [
     ./hardware-configuration.nix
   ] ++
-  (import ../../modules/hardware/vpn) ++
-  (import ../../modules/desktops/virtualisation);
+  (import ../../modules/virtualisation);
 
   # Boot Options
   boot = {
