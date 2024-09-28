@@ -38,7 +38,7 @@ in
     modules = [
       nur.nixosModules.nur
       nixvim.nixosModules.nixvim
-      ./beelink
+      ./vpn
       ./configuration.nix
 
       home-manager.nixosModules.home-manager
