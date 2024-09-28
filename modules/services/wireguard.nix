@@ -6,6 +6,7 @@
 
 {
   systemd.services."wireguard" = {
+    enable = true;
         script = ''
   docker run -d \
   --name=wireguard \
