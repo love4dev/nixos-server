@@ -13,3 +13,9 @@
 - Install basic utils
 
 `nix shell nixpkgs#home-manager nixpkgs#git`
+
+- Pull repo
+```
+git clone git@github.com:love4dev/nixos-server.git ~/.setup
+cd ~/.setup
+```
