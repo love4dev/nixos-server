@@ -8,7 +8,7 @@
   systemd.services."wireguard" = {
     enable = true;
     path = [ pkgs.docker ];
-        script = ''
+    script = ''
   docker run -d \
   --name=wireguard \
   --cap-add=NET_ADMIN \
@@ -29,12 +29,12 @@
   --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
   --restart unless-stopped \
   lscr.io/linuxserver/wireguard:latest
-        '';
-        serviceConfig = {
-          Type = "oneshot";
-          User = "root";
-        };
-        after = [ "network.target" ];
-      };
+  '';
+    serviceConfig = {
+      Type = "oneshot";
+      User = "root";
+    };
+    after = [ "network.target" ];
+  };
 }
 
