@@ -19,3 +19,19 @@
 git clone https://github.com/love4dev/nixos-server.git ~/.setup
 cd ~/.setup
 ```
+
+## Usage
+
+- Run `git pull && sudo nixos-rebuild switch --flake .#vpn --option eval-cache false --show-trace` to apply your system configuration.
+
+### Useful command
+
+- Update apps
+
+```bash
+git pull
+nix-channel --update
+nix flake update # then rebuild
+sudo nixos-rebuild switch --flake .#vpn --show-trace
+nix-env -u '*'
+```
