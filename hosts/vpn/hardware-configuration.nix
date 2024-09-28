@@ -37,6 +37,6 @@
     enableIPv6 = true;
     useDHCP = lib.mkDefault true;
     hostName = "timeweb-vpn-server";
-    nameservers = [ "1.1.1.1", "8.8.8.8" ];
+    nameservers = [ "1.1.1.1" "8.8.8.8" ];
   };
 }
