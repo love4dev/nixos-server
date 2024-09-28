@@ -7,6 +7,7 @@
 {
   systemd.services."wireguard" = {
     enable = true;
+    path = [ pkgs.docker ];
         script = ''
   docker run -d \
   --name=wireguard \
@@ -31,7 +32,7 @@
         '';
         serviceConfig = {
           Type = "oneshot";
-          User = "${vars.user}";
+          User = "root";
         };
         after = [ "network.target" ];
       };
