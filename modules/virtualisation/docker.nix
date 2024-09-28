@@ -6,7 +6,13 @@
 
 {
   virtualisation = {
-    docker.enable = true;
+     docker = {
+      enable = true;
+      daemon.settings = {
+        "registry-mirrors" = [ "https://dockerhub.timeweb.cloud" ];
+        "live-restore" = false;
+      };
+    };
   };
 
   users.groups.docker.members = [ "${vars.user}" ];

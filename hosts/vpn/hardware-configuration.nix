@@ -36,7 +36,7 @@
   networking = with host; {
     enableIPv6 = true;
     useDHCP = lib.mkDefault true;
-    hostName = "oleg-nix-pc";
+    hostName = "timeweb-vpn-server";
     nameservers = [ "1.1.1.1" ];
     firewall.enable = false;
   };
