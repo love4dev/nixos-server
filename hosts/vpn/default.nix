@@ -20,11 +20,11 @@
   ] ++
   (import ../../modules/virtualisation);
 
-  # Boot Options
-  # Bootloader.
   boot.loader.grub.enable = true;
+  boot.growPartition = true;
+  boot.kernelParams = ["console=ttyS0"];
   boot.loader.grub.device = "/dev/vda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.timeout = 0;
 
   hardware = {
     graphics = {
