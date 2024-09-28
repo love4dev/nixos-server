@@ -1,5 +1,5 @@
 #
-#  GPG configuration
+#  SSH configuration
 #
 
 { lib, pkgs, vars, host, ... }:
