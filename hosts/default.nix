@@ -9,7 +9,7 @@
 #           └─ default.nix
 #
 
-{ inputs, nixpkgs, nixpkgs-stable, nixos-hardware, home-manager, nur, nixvim, doom-emacs, hyprland, hyprspace, plasma-manager, vars, ... }:
+{ inputs, nixpkgs, nixpkgs-stable, nixos-hardware, home-manager, nixvim, vars, ... }:
 
 let
   system = "x86_64-linux";
@@ -36,7 +36,6 @@ in
       };
     };
     modules = [
-      nur.nixosModules.nur
       ./vpn
       ./configuration.nix
 
