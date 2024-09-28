@@ -6,7 +6,7 @@
 
 {
   services.zabbixAgent = {
-     enable = true;
+     enable = false;
      openFirewall = true;
   };
 }
