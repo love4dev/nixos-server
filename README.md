@@ -40,4 +40,4 @@ nix-env -u '*'
 - [VPN](https://github.com/linuxserver/docker-wireguard)
 
 ## Roadmap
-- [] Add fail2ban
+- [ ] Add fail2ban
