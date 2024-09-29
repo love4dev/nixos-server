@@ -38,3 +38,6 @@ nix-env -u '*'
 
 ## Useful links
 - [VPN](https://github.com/linuxserver/docker-wireguard)
+
+## Roadmap
+- [] Add fail2ban
