@@ -41,3 +41,4 @@ nix-env -u '*'
 
 ## Roadmap
 - [ ] Add fail2ban
+- [ ] Add reverse proxy ([Caddu](https://caddyserver.com/))
